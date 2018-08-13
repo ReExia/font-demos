@@ -1,0 +1,48 @@
+
+<h3>一：基本模板表单</h3>
+<hr/>
+<form #form="ngForm" class="form-group" novalidate (ngSubmit)="onSubmit(form.value)" >
+
+  <!--用户名-->
+  <div class="form-group" >
+    <label for="email">邮箱:</label>
+    <input type="text" class="form-control" name="email" required [(ngModel)]="user.email" id="email"  #email="ngModel" >
+  </div><!--用户名结束-->
+
+  <!--用户名-->
+    <div class="form-group" >
+      <label for="name">密码:</label>
+      <input type="password" class="form-control" name="password" required [(ngModel)]="user.password" id= "name"  #password="ngModel">
+    </div><!--用户名结束-->
+    
+  <!--提交按钮-->
+    <div class="form-group">
+        <button type="submit" class="btn btn-success" [disabled]="!email.valid || !password.valid">登录</button>
+    </div><!--提交按钮结束-->
+
+</form>
+<br/>
+<br/>
+<div class="">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">表单状态</h3>
+        </div>
+        <div class="panel-body">
+
+          <!--表单状态-->
+          <h4>from value:{{ form.value | json}}</h4>
+          <h4>from submitted:{{ form.submitted | json}}</h4><!--表单结束-->
+          <hr/>
+          <!--邮件状态-->
+          <h4>email value:{{ email.value | json}}</h4>
+          <h4>email status:{{ email.status | json}}</h4>
+          <h4>email valid:{{ email.valid | json}}</h4> <!--邮件状态结束-->
+          <hr/>
+          <!--密码状态-->
+          <h4>password value:{{ password.value | json}}</h4>
+          <h4>password status:{{ password.status | json}}</h4>
+          <h4>password valid:{{ password.valid | json}}</h4><!--密码结束-->
+        </div>
+    </div>
+</div>

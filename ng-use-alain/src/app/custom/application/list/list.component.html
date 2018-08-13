@@ -1,0 +1,125 @@
+<div class="content__title">
+  <h1>简易表格</h1>
+</div>
+
+
+<nz-card nzTitle="搜索框">
+  <!--search button-->
+  <div nz-row>
+    <div nz-col [nzSpan]="24" style="text-align: left;">
+      <button nz-button [nzType]="'primary'" (click)="postSearchData()">
+        <span>提交条件</span>
+      </button>
+      &nbsp;&nbsp;
+      <button nz-button [nzType]="'default'" (click)="resetSearchData()">
+        <span>重置重置条件</span>
+      </button>
+      &nbsp;&nbsp;
+      <button nz-button [nzType]="'danger'" (click)="reloadDataTable()">
+        <span>刷新数据</span>
+      </button>
+    </div>
+  </div>
+  <!--search button end-->
+  <br/>
+  <!--form content-->
+  <div nz-form>
+    <div nz-row [nzGutter]="40">
+      <!--搜索条件-->
+      <div nz-col [nzSpan]="6">
+        <div nz-form-item nz-row>
+          <div nz-form-label nz-col [nzSpan]="8">
+            <label [attr.for]="appId">app名称</label>
+          </div>
+          <div nz-col [nzSpan]="16">
+            <nz-input [nzSize]="'large'" [nzPlaceHolder]="'placeholder'" [(ngModel)]="searchData.appId" nzId="appId"></nz-input>
+          </div>
+        </div>
+      </div>
+
+      <div nz-col [nzSpan]="6">
+        <div nz-form-item nz-row>
+          <div nz-form-label nz-col [nzSpan]="8">
+            <label [attr.for]="appName">app名称</label>
+          </div>
+          <div nz-col [nzSpan]="16">
+            <nz-input [nzSize]="'large'" [nzPlaceHolder]="'placeholder'" [(ngModel)]="searchData.appName" nzId="appKey"></nz-input>
+          </div>
+        </div>
+      </div>
+
+      <div nz-col [nzSpan]="6">
+        <div nz-form-item nz-row>
+          <div nz-form-label nz-col [nzSpan]="8">
+            <label [attr.for]="appKey">app钥匙</label>
+          </div>
+          <div nz-col [nzSpan]="16">
+            <nz-input [nzSize]="'large'" [nzPlaceHolder]="'placeholder'" [(ngModel)]="searchData.appKey" nzId="appKey"></nz-input>
+          </div>
+        </div>
+      </div>
+
+      <div nz-col [nzSpan]="6">
+        <div nz-form-item nz-row>
+          <div nz-form-label nz-col [nzSpan]="8">
+            <label [attr.for]="appSecret">app加密</label>
+          </div>
+          <div nz-col [nzSpan]="16">
+            <nz-input [nzSize]="'large'" [nzPlaceHolder]="'placeholder'" [(ngModel)]="searchData.appSecret" nzId="appKey"></nz-input>
+          </div>
+        </div>
+      </div>
+
+      <div nz-col [nzSpan]="6">
+        <div nz-form-item nz-row>
+          <div nz-form-label nz-col [nzSpan]="8">
+            <label [attr.for]="appSecret">App加密串</label>
+          </div>
+          <div nz-col [nzSpan]="16">
+            <nz-input [nzSize]="'large'" [nzPlaceHolder]="'placeholder'" [(ngModel)]="searchData.appSecret" nzId="appKey"></nz-input>
+          </div>
+        </div>
+      </div>
+
+      <div nz-col [nzSpan]="6">
+        <div nz-form-item nz-row>
+          <div nz-form-label nz-col [nzSpan]="8">
+            <label>操作时间</label>
+          </div>
+          <div nz-col [nzSpan]="16">
+            <nz-rangepicker [(ngModel)]="searchData.operateRange" [nzSize]="'large'" [nzDisabledDate]="disabledDate"></nz-rangepicker>
+          </div>
+        </div>
+      </div>
+
+      <div nz-col [nzSpan]="6">
+        <div nz-form-item nz-row>
+          <div nz-form-label nz-col [nzSpan]="8">
+            <label>创建时间</label>
+          </div>
+          <div nz-col [nzSpan]="16">
+            <nz-rangepicker [(ngModel)]="searchData.createRange" [nzSize]="'large'" [nzDisabledDate]="disabledDate"></nz-rangepicker>
+          </div>
+        </div>
+      </div>
+      <!--搜索条件-->
+    </div>
+  </div>
+  <!--form content end-->
+
+  <!--form status-->
+  <div class="搜索条件">
+    Search Result List:
+    <p>
+      {{searchData| json}}
+    </p>
+  </div>
+  <!--form status end-->
+</nz-card>
+
+<nz-card nzTitle="表格">
+  <simple-table #st [data]="url" [columns]="columns" [preDataChange]="dataChange" [resReName]="{list: 'data.list', total : 'data.total' }"
+    reqMehtod="post" [extraParams]="searchData" (checkboxChange)="checkboxChange($event)" toTopInChange showSizeChanger showQuickJumper
+    showTotal isPageIndexReset>
+  </simple-table>
+</nz-card>

@@ -1,0 +1,72 @@
+<div class="col-xs-push-3 col-xs-6" [@flyIn]="">
+  <div class="box box-info">
+    <div class="box-header with-border">
+      <h3 class="box-title" *ngIf="id === -1">
+        增加用户
+      </h3>
+      <h3 class="box-title" *ngIf="id !== -1">
+        修改用户
+      </h3>
+
+    </div>
+    <!-- /.box-header -->
+    <!-- form start -->
+    <div class="form-horizontal" (submit)="save()">
+      <div class="box-body">
+
+        <div class="form-group " *ngIf="id !== -1">
+          <label for="id" class="col-sm-2 control-label">编号</label>
+          <div class="col-sm-7">
+            <input type="text" class="form-control" id="id" [(ngModel)]="user.id" placeholder="编号">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="username" class="col-sm-2 control-label">用户名</label>
+          <div class="col-sm-7">
+            <input type="text" class="form-control" id="username" [(ngModel)]="user.username" placeholder="用户名">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="mail" class="col-sm-2 control-label">邮箱</label>
+          <div class="col-sm-7">
+            <input type="email" class="form-control" id="mail" [(ngModel)]="user.mail" placeholder="邮箱">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="password" class="col-sm-2 control-label">密码</label>
+          <div class="col-sm-7">
+            <input type="text" class="form-control" id="password" [(ngModel)]="user.password" placeholder="密码">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="deptId" class="col-sm-2 control-label">所属部门</label>
+          <div class="col-sm-7">
+            <input type="text" class="form-control" id="deptId" [(ngModel)]="user.deptId" placeholder="所属部门">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="remark" class="col-sm-2 control-label">备注</label>
+          <div class="col-sm-7">
+            <input type="text" class="form-control" id="remark" [(ngModel)]="user.remark" placeholder="备注">
+          </div>
+        </div>
+
+      </div>
+
+
+      <!-- /.box-body -->
+      <div class="box-footer">
+        <button type="button" class="btn btn-default" (click)="goBack()">回退</button>
+        <button type="submit" class="btn btn-info pull-right" (click)="save()">提交</button>
+      </div>
+      <!-- /.box-footer -->
+    </div>
+    <div>user : {{user | json}}</div>
+
+  </div>
+</div>

@@ -1,0 +1,23 @@
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+
+import { Charts1Component } from './charts-1.component';
+
+describe('Charts1Component', () => {
+  let component: Charts1Component;
+  let fixture: ComponentFixture<Charts1Component>;
+
+  beforeEach(async(() => {
+    TestBed.configureTestingModule({
+      declarations: [ Charts1Component ]
+    })
+    .compileComponents();
+  }));
+
+  beforeEach(() => {
+    fixture = TestBed.createComponent(Charts1Component);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
+  });
+
+
+});

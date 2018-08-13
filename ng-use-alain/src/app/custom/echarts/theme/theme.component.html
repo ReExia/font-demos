@@ -1,0 +1,12 @@
+
+
+<nz-card>
+    <button *ngFor="let theme of themes" nz-button [nzType]="'primary'" (click)="createChart(options,theme)" style="margin-left:10px;">
+      <span>{{theme}}</span>
+    </button>
+</nz-card>
+
+<div id="chartsContainer"></div>
+
+
+

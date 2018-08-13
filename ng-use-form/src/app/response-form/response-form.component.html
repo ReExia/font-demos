@@ -1,0 +1,108 @@
+<h3>二：响应式表单</h3>
+
+<form [formGroup]="userForm" (ngSubmit)="onSubmit(userForm.value)" >
+  
+  <!--姓名-->
+  <!--这里用‘name’注意加单引号来取到验证状态-->
+  <div class="form-group" [ngClass]="{'has-error':formErrors.name}" >
+    <label for="name">姓名:</label>
+    <input type="text" class="form-control" id="name" formControlName="name"  />
+  </div>
+  <div *ngIf="formErrors.name" class="text-danger">{{ formErrors.name }}</div><!--姓名结束-->
+
+  <!--性别-->
+  <div class="radio" [ngClass]="{'has-error':formErrors.sex}">
+    <label>
+      <input type="radio" formControlName="sex" value="1"/>
+      男
+    </label>
+     <label>
+      <input type="radio" formControlName="sex"  value="-1"/>
+      女
+    </label>
+  </div> <!--性别结束-->
+
+  <!--昵称-->
+  <div class="form-group" [ngClass]="{'has-error':formErrors.nickName}">
+    <label for="nickName">昵称:</label>
+    <input type="text" class="form-control"  formControlName="nickName" id="nickName"/>
+  </div><div *ngIf="formErrors.nickName" class="text-danger">{{ formErrors.nickName }}</div><!--昵称结束-->
+
+  <!--邮箱-->
+  <div class="form-group" [ngClass]="{'has-error':formErrors.email}">
+    <label for="email">邮箱：</label>
+    <input type="text" class="form-control" formControlName="email"  id="email">
+  </div><div *ngIf="formErrors.email" class="text-danger">{{ formErrors.email }}</div><!--邮箱结束-->
+
+  <!--密码-->
+  <div class="form-group" [ngClass]="{'has-error':formErrors.password}">
+    <label for="password">密码:</label>
+    <input type="password" class="form-control" formControlName="password"  id="password">
+  </div><div *ngIf="formErrors.password" class="text-danger">{{ formErrors.password }}</div><!--密码结束-->
+
+  <!--地址-->
+  <div class="form-group" [ngClass]="{'has-error':formErrors.address}">
+    <label for="address">地址:</label>
+     <select class="form-control" formControlName="address" id="address">
+          <option value="四川">四川</option>
+          <option value="浙江">浙江</option>
+          <option value="黑龙江">黑龙江</option>
+      </select>
+  </div><div *ngIf="formErrors.address" class="text-danger">{{ formErrors.address }}</div><!--地址-->
+
+  <button type="submit" class="btn btn-info" [disabled]="!userForm.valid">提交</button>
+</form>
+
+
+<hr/>
+<div class="col-sm-12">
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+          <h3 class="panel-title">表单状态</h3>
+        </div>
+        <div class="panel-body">
+          
+          <!--表单状态-->
+          <h4>userForm value:{{ userForm.value | json}}</h4>
+          <h4>userForm status:{{ userForm.status | json}}</h4><!--表单结束-->
+          <hr/>
+            <!--姓名状态-->
+          <h4>name value:{{ userForm.get("name").value | json}}</h4>
+          <h4>name submitted:{{ userForm.get("name").status | json}}</h4>
+          <h4>name valid:{{ userForm.get("name").valid| json}}</h4><!--姓名状态结束-->
+          <hr/>
+
+           <!--性别状态-->
+          <h4>sex value:{{ userForm.get("sex").value | json}}</h4>
+          <h4>sex submitted:{{ userForm.get("sex").status | json}}</h4>
+          <h4>sex valid:{{ userForm.get("sex").valid | json}}</h4><!--性别状态结束-->
+          <hr/>
+
+           <!--昵称状态-->
+          <h4>nickName value:{{ userForm.get("nickName").value | json}}</h4>
+          <h4>nickName submitted:{{ userForm.get("nickName").status | json}}</h4>
+          <h4>nickName valid:{{ userForm.get("nickName").valid | json}}</h4><!--昵称状态结束-->
+          <hr/>
+
+          <!--邮件状态-->
+          <h4>email value:{{ userForm.get("email").value | json}}</h4>
+          <h4>email status:{{ userForm.get("email").status | json}}</h4>
+          <h4>email valid:{{ userForm.get("email").valid | json}}</h4> <!--邮件状态结束-->
+          <hr/>
+
+          <!--密码状态-->
+          <h4>password value:{{ userForm.get("password").value | json}}</h4>
+          <h4>password status:{{ userForm.get("password").status | json}}</h4>
+          <h4>password valid:{{ userForm.get("password").valid | json}}</h4><!--密码结束-->
+          <hr/>
+
+          <!--地址状态-->
+          <h4>address value:{{ userForm.get("address").value | json}}</h4>
+          <h4>address status:{{ userForm.get("address").status | json}}</h4>
+          <h4>address valid:{{ userForm.get("address").valid | json}}</h4><!--密码结束-->
+          <hr/>
+
+        
+        </div>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="panel panel-primary">
+  
+  <div class="panel-heading">
+    <h3 class="panel-title">父组件</h3>
+  </div>
+
+  <div class="panel-body">
+    <app-child-first (message)="receiveMessage($event)">
+      <app-child-second></app-child-second>
+      <h3>这是h3</h3>
+      <app-child-third></app-child-third>
+    </app-child-first>
+  </div>
+  
+</div>

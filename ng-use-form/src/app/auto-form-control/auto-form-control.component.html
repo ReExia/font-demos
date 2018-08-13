@@ -1,0 +1,24 @@
+<h4>这是动态表单的一项</h4>
+
+<div [formGroup]="form">
+    <!--表单名称-->
+    <label class="col-sm-2 control-label">{{field.label}}</label><!--表单名称结束-->
+
+    <div class="col-sm-10">
+
+        <div [ngSwitch]="field.controlType">
+          <!--判断是不是textbox类型-->
+         
+          <input *ngSwitchCase="'textbox'" class="form-control" value="{{field.value}}" [formControlName]="field.key" [type]="field.type"
+                placeholder="{{field.placeholder}}" type="{{field.type}}"  placeholder="{{field.placeholder}}" />
+          <!--判断是不是textarea-->
+          <textarea *ngSwitchCase="'textarea'" value="{{field.value}}" rows="{{field.rows}}" class="form-control" [formControlName]="field.key"
+                placeholder="{{field.placeholder}}"></textarea>
+          <!--判断是不是image-->
+            <img *ngSwitchCase="'image'" src="{{field.src}}">
+        </div>
+
+    </div>
+
+</div>
+

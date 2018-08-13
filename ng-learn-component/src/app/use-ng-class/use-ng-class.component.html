@@ -1,0 +1,14 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">{{title}}</h3>
+    </div>
+  
+    <div class="panel-body">
+      
+      <button [ngClass]="currentClass" (click)="changeClass()">点击</button>
+
+      <p>currentClass : {{currentClass | json}}</p>
+    </div>
+    
+  </div>
+  

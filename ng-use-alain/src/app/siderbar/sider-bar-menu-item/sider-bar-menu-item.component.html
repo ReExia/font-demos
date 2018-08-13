@@ -1,0 +1,54 @@
+<!--第一层没有子代-->
+<li nz-menu-item *ngIf="item.children.length <= 0">
+  <span title>
+    <i class="{{item.icon}}" *ngIf="item.isTop"></i>
+    <span><a [routerLink]="[item.link]">{{item.text}}</a></span>
+  </span>
+</li>
+
+<!--第一层有子代-->
+<li nz-submenu *ngIf="item.children.length > 0">
+  <span title>
+    <i class="{{item.icon}}" *ngIf="item.isTop"></i>
+    <span>
+        {{item.text}}
+    </span>
+  </span>
+
+  <!-- 第二层 -->
+  <ul>
+    <div *ngFor="let secondItem of item.children">
+      <li nz-menu-item *ngIf="secondItem.children.length <= 0"><a [routerLink]="[secondItem.link]">{{secondItem.text}}</a></li>
+
+      <li nz-submenu *ngIf="secondItem.children.length > 0">
+        <span title>{{secondItem.text}}</span>
+        <!-- 第三层 -->
+        <ul>
+          <div *ngFor="let thirdItem of secondItem.children">
+            <li nz-menu-item *ngIf="thirdItem.children.length <= 0"><a [routerLink]="[thirdItem.link]">{{thirdItem.text}}</a></li>
+
+            <li nz-submenu *ngIf="thirdItem.children.length > 0">
+              <span title>{{thirdItem.text}}</span>
+              <div *ngFor="let fourthItem of thirdItem.children">
+                <ul>
+                  <li nz-menu-item *ngIf="fourthItem.children.length <= 0"><a [routerLink]="[fourthItem.link]">{{fourthItem.text}}</a></li>
+                  <li nz-submenu *ngIf="fourthItem.children.length > 0">
+                    <span title>{{fourthItem.text}}</span>
+                    <!-- 第五层 -->
+                    <ul>
+                      <div *ngFor="let fifthItem of fourthItem.children">
+                        <li nz-menu-item *ngIf="fifthItem.children.length <= 0"><a [routerLink]="[fifthItem.link]">{{fifthItem.text}}</a></li>
+                        <!-- 第六层暂时不用了 -->
+                      </div>
+                    </ul>
+                  </li>
+                </ul>
+              </div>
+            </li>
+          </div>
+        </ul>
+      </li>
+    </div>
+  </ul>
+
+</li>

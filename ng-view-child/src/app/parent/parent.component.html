@@ -1,0 +1,11 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">parent</h3>
+    </div>
+  
+    <div class="panel-body">
+      <app-child (message)="receiveMessage($event)"></app-child>
+      <button class="btn btn-primary" (click)="useChildMethod()">子组件方法</button>
+    </div>
+  </div>
+  

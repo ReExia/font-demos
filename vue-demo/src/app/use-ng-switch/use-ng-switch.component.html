@@ -1,0 +1,46 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">{{title}}</h3>
+    </div>
+  
+    <div class="panel-body">
+
+      <div [ngSwitch]="status">
+
+        <p *ngSwitchCase="0">
+              状态0
+        </p>
+
+        <p *ngSwitchCase="1">
+            状态1
+        </p>
+
+        <p *ngSwitchCase="2">
+            状态2
+        </p>
+
+
+        <p *ngSwitchDefault>
+            默认status
+        </p>
+
+        <select [(ngModel)]="status">
+            <option [ngValue]="0">
+              status = 0
+            </option>
+            <option [ngValue]="1">
+                status = 1
+            </option>
+            <option [ngValue]="2">
+                status = 2
+            </option>
+            <option [ngValue]="8">
+                默认
+            </option>
+        </select>
+
+      </div>
+    </div>
+    
+  </div>
+  

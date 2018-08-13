@@ -1,0 +1,17 @@
+<div class="content__title">
+  <h1>Echarts</h1>
+</div>
+
+<nz-card>
+    <button *ngFor="let type of types" nz-button [nzType]="'primary'" (click)="changeType(type)" style="margin-left:10px;">
+      <span>{{type}}</span>
+    </button>
+</nz-card>
+
+
+
+  <app-echart1 *ngIf="currentType == 1"></app-echart1>
+  <app-basic *ngIf="currentType == 2"></app-basic>
+  <app-instance *ngIf="currentType == 3"></app-instance>
+  <app-events *ngIf="currentType == 4"></app-events>
+  <app-theme  *ngIf="currentType == 5"></app-theme>

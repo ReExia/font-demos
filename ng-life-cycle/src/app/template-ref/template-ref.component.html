@@ -1,0 +1,12 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    <h3 class="panel-title">{{title}}</h3>
+  </div>
+
+  <div class="panel-body">
+    <span>heroInput</span> : <input #heroInput>
+    <p>{{heroInput.value}}</p>
+    <button class="btn btn-info" (click)="getHeroInput(heroInput.value)" >模板局部变量</button>
+  </div>
+  
+</div>

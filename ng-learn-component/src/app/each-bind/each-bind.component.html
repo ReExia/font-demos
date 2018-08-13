@@ -1,0 +1,11 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">{{title}}</h3>
+    </div>
+  
+    <div class="panel-body">
+      <app-font-change [(size)]="fontSizePx"></app-font-change>
+      <div [style.font-size.px]="fontSizePx">Resizable Text</div>
+    </div>
+  </div>
+  

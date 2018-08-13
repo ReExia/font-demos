@@ -1,0 +1,49 @@
+{
+  "menu" : [
+    {
+      "menuId" : "abc",
+      "text" : "首页",
+      "translate" : "first",
+      "link" : "first",
+      "icon" : "xxx",
+      "menuClass" : [],
+      "children" : [
+        {"menuId" : "abc","text" : "首页","translate" : "first","link" : "first","icon" : "xxx","menuClass" : [],"children" : [
+          {"menuId" : "abc","text" : "首页","translate" : "first","link" : "first","icon" : "xxx","menuClass" : [],"children" : []}
+        ]}
+      ]
+    },
+
+    {
+      "menuId" : "abc",
+      "text" : "首页",
+      "translate" : "first",
+      "link" : "first",
+      "icon" : "xxx",
+      "menuClass" : [],
+      "children" : [
+        {"menuId" : "abc","text" : "首页","translate" : "first","link" : "first","icon" : "xxx","menuClass" : [],"children" : [
+          {"menuId" : "abc","text" : "首页","translate" : "first","link" : "first","icon" : "xxx","menuClass" : [],"children" : [
+            {"menuId" : "abc","text" : "首页","translate" : "first","link" : "first","icon" : "xxx","menuClass" : [],"children" : []}
+          ]}
+        ]}
+      ]
+    },
+
+    {
+      "menuId" : "abc",
+      "text" : "首页",
+      "translate" : "first",
+      "link" : "first",
+      "icon" : "xxx",
+      "menuClass" : [],
+      "children" : [
+        {"menuId" : "abc","text" : "首页","translate" : "first","link" : "first","icon" : "xxx","menuClass" : [],"children" : [
+          {"menuId" : "abc","text" : "首页","translate" : "first","link" : "first","icon" : "xxx","menuClass" : [],"children" : [
+            {"menuId" : "abc","text" : "首页","translate" : "first","link" : "first","icon" : "xxx","menuClass" : [],"children" : []}
+          ]}
+        ]}
+      ]
+    }
+]
+}

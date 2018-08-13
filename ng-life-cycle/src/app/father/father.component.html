@@ -1,0 +1,28 @@
+<div class="panel panel-primary">
+    <div class="panel-heading">
+      <h3 class="panel-title">父组件</h3>
+    </div>
+
+    <div>
+
+      <p>
+        <span>userName:</span>
+        <input type="text" [(ngModel)]="userName"/>
+      </p>
+
+      <p>
+          <span>userObj.username:</span>
+          <input type="text" [(ngModel)]="userObj.username"/>
+          <br/>
+          <span>userObj.remark:</span>
+          <input type="text" [(ngModel)]="userObj.remark"/>
+      </p>
+
+    </div>
+  
+    <div class="panel-body">
+      <app-child [userName]="userName" [userObj]="userObj"></app-child>
+    </div>
+    
+  </div>
+  

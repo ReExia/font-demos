@@ -1,0 +1,111 @@
+<nz-layout class="layout">
+
+  <!--顶部导航-->
+  <nz-header class="bg-primary">
+
+      <div class="head-logo">
+          <a [routerLink]="['/']">
+              <img class="collapsed" src="./assets/img/logo-full.svg"  alt="" style="max-height:30px;" />
+          </a>
+      </div>
+
+    <div class="top-nav-wrap">
+       
+
+      <ul class="top-nav">
+        <!-- Menu -->
+
+        <!-- Github Page -->
+        <li>
+          <a class="item" href="//github.com/cipchk/ng-alain" target="_blank">
+            <i class="anticon anticon-github"></i>
+          </a>
+        </li>
+        <!-- Lock Page -->
+        <li class="hidden-xs">
+          <div class="item">
+            <i class="anticon anticon-lock"></i>
+          </div>
+        </li>
+        <!-- Search Button -->
+
+      </ul>
+      <ul class="top-nav">
+        <!-- Notify -->
+        <li>
+        </li>
+        <!-- Task -->
+        <li class="hidden-xs">
+        </li>
+        <!-- App Icons -->
+        <li class="hidden-xs">
+        </li>
+        <!-- Settings -->
+        <li class="hidden-xs">
+          <nz-dropdown nzTrigger="click" nzPlacement="bottomRight">
+            <div class="item" nz-dropdown>
+              <i class="anticon anticon-setting"></i>
+            </div>
+            <div nz-menu style="width:200px">
+              <div nz-menu-item class="theme-switch">
+              </div>
+              <div nz-menu-item>
+              </div>
+              <div nz-menu-item>
+              </div>
+              <div nz-menu-item>
+              </div>
+            </div>
+          </nz-dropdown>
+        </li>
+
+        <!-- 用户下拉菜单 -->
+        <li class="hidden-xs">
+            <nz-dropdown nzPlacement="bottomRight">
+              <div class="item d-flex align-items-center px-sm" nz-dropdown>
+                <nz-avatar nzSize="small" class="mr-sm">
+                  <img src="./assets/img/1.png" alt="" class="ng-star-inserted">
+                </nz-avatar>
+                  张三
+                </div>
+                <div nz-menu class="width-sm">
+                    <div nz-menu-item [nzDisable]="true"><i class="anticon anticon-user mr-sm"></i>个人中心</div>
+                    <div nz-menu-item [nzDisable]="true"><i class="anticon anticon-setting mr-sm"></i>设置</div>
+                    <li nz-menu-divider></li>
+                    <div nz-menu-item><i class="anticon anticon-setting mr-sm"></i>退出登录</div>
+                </div>
+            </nz-dropdown>
+        </li>
+      </ul>
+    </div>
+  </nz-header>
+  <!--顶部导航-->
+
+  <nz-content style="padding:0 50px;">
+    <!--<nz-breadcrumb style="margin:12px 0;">-->
+    <!--<nz-breadcrumb-item>Home</nz-breadcrumb-item>-->
+    <!--<nz-breadcrumb-item>List</nz-breadcrumb-item>-->
+    <!--<nz-breadcrumb-item>App</nz-breadcrumb-item>-->
+    <!--</nz-breadcrumb>-->
+    <div style="min-height:50px"></div>
+
+    <nz-layout style="padding:24px 0; background: #fff">
+      <!--侧边栏-->
+      <nz-sider [nzWidth]="200" style="background:#fff">
+        <ul nz-menu [nzMode]="'inline'" style="height:100%">
+          <app-siderbar></app-siderbar>
+        </ul>
+      </nz-sider>
+      <!--侧边栏-->
+
+      <!--内容-->
+      <nz-content style="padding: 0 24px; min-height: 650px;">
+        <router-outlet></router-outlet>
+      </nz-content>
+      <!--内容-->
+
+    </nz-layout>
+  </nz-content>
+  <div style="min-height:50px"></div>
+  <nz-footer style="text-align: center;" class="bg-primary">Ant Design ©2017 Implement By Angular</nz-footer>
+</nz-layout>
